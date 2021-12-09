@@ -6,6 +6,7 @@ export type ContentType = {
   fullscreenimageurl: string,
   id: string,
   imageurl: string,
+  highrighticon: string[] | null,
   playinfoid: {
     hd: string,
     sd: string,
