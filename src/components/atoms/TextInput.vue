@@ -3,6 +3,7 @@
     type="text"
     :value="modelValue"
     @input="$emit('update:modelValue', $event.target.value)"
+    :placeholder="placeholder"
   />
 </template>
 
@@ -13,6 +14,7 @@ export default {
     modelValue: {
       type: String,
     },
+    placeholder: String,
   },
 };
 </script>

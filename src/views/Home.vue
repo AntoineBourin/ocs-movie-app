@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <h1>OCS - Recherche de programmes</h1>
     <MovieSearch />
   </div>
 </template>
