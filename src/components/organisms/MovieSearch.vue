@@ -1,5 +1,9 @@
 <template>
-  <SearchInput :search-callback="handleSearchTriggered" start-at="0" />
+  <SearchInput
+    :search-callback="handleSearchTriggered"
+    start-at="0"
+    placeholder="Rechercher un programme"
+  />
   <movie-list :movies="movies" />
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <TextInput v-model="search" />
+  <TextInput v-model="search" :placeholder="placeholder" />
 </template>
 
 <script>
@@ -11,6 +11,7 @@ export default {
   props: {
     startAt: Number,
     searchCallback: Function,
+    placeholder: String,
   },
   data() {
     return {
@@ -34,3 +35,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+input {
+  padding: 10px 20px;
+  min-width: 25%;
+  text-align: center;
+}
+</style>
