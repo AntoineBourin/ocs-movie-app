@@ -20,7 +20,7 @@ export type ContentType = {
   }>
 }
 
-export type ContentCollection = {
+export interface ContentCollection {
   locations: ContentType[],
 }
 
@@ -33,7 +33,7 @@ export type ContentSearchResponse = {
   template: string,
   title: string,
   total: number
-};
+}
 
 class Content extends Client {
   async search(search: string): Promise<ContentSearchResponse> {
