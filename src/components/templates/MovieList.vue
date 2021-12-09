@@ -12,20 +12,26 @@
   </div>
 </template>
 
-<script>
-import MovieThumb from '@/components/organisms/MovieThumb.vue';
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+import MovieThumb from '../organisms/MovieThumb.vue';
+import { ContentCollection } from '../../lib/Content';
 
-export default {
+export default defineComponent({
   name: 'MovieList',
   components: { MovieThumb },
   props: {
-    movies: Array,
+    movies: [] as PropType<ContentCollection>,
     error: String,
   },
-};
+});
 </script>
 
 <style lang="scss">
+@keyframes movie-appear {
+  from { opacity: 0; transform: translateY(25%) }
+  to { opacity: 1; transform: translateY(0) }
+}
 .movie--list {
   display: flex;
   flex-wrap: wrap;
@@ -36,6 +42,8 @@ export default {
 
   .movie {
     flex: calc(25% - 30px) 0 0;
+    opacity: 0;
+    animation: movie-appear 2s forwards;
   }
 }
 </style>

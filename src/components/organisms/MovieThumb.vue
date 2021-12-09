@@ -4,14 +4,18 @@
   <p>{{ movie.subtitle }}</p>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+import { ContentType } from '../../lib/Content';
 
-export default {
+export default defineComponent({
   name: 'MovieThumb',
   props: {
-    movie: Object,
+    movie: {
+      type: Object as PropType<ContentType>,
+    },
   },
-};
+});
 </script>
 
 <style lang="scss">
@@ -20,6 +24,6 @@ img {
   object-fit: cover;
 }
 h2 {
-  font-size: 16px;
+  font-size: 14px;
 }
 </style>

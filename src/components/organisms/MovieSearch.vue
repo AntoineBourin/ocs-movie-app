@@ -7,24 +7,25 @@
   <movie-list :movies="movies" />
 </template>
 
-<script>
-import SearchInput from '@/components/molecules/SearchInput.vue';
-import Content from '@/lib/Content';
-import MovieList from '@/components/templates/MovieList.vue';
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+import SearchInput from '../molecules/SearchInput.vue';
+import Content, { ContentCollection, ContentSearchResponse } from '../../lib/Content';
+import MovieList from '../templates/MovieList.vue';
 
-export default {
+export default defineComponent({
   name: 'MovieSearch',
   components: { MovieList, SearchInput },
   data() {
     return {
-      movies: [],
+      movies: [] as PropType<ContentCollection>,
       error: null,
     };
   },
   methods: {
     handleSearchTriggered(value) {
       new Content().search(value)
-        .then((contentResponse) => {
+        .then((contentResponse: ContentSearchResponse) => {
           this.movies = contentResponse.contents;
           this.error = null;
         })
@@ -33,5 +34,5 @@ export default {
         });
     },
   },
-};
+});
 </script>
